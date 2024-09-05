@@ -1204,7 +1204,7 @@
 							"raw": "{\n    \"product_name\": \"Product 1\",\n    \"quantity\": 10,\n    \"price\": 100,\n    \"status\": \"pending\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:7000/digistar/order",
+							"raw": "http://localhost:7000/digistar/order/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1212,7 +1212,14 @@
 							"port": "7000",
 							"path": [
 								"digistar",
-								"order"
+								"order",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -1221,7 +1228,7 @@
 				{
 					"name": "Delete Order By ID",
 					"request": {
-						"method": "PUT",
+						"method": "DELETE",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -1232,12 +1239,8 @@
 								"value": "Bearer {{jwt_token}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"product_name\": \"Product 1\",\n    \"quantity\": 10,\n    \"price\": 100,\n    \"status\": \"pending\"\n}"
-						},
 						"url": {
-							"raw": "http://localhost:7000/digistar/order",
+							"raw": "http://localhost:7000/digistar/order/:id",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1245,7 +1248,14 @@
 							"port": "7000",
 							"path": [
 								"digistar",
-								"order"
+								"order",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "ac15d2ae-27cf-41ca-839f-87c09f3c2019"
+								}
 							]
 						}
 					},
