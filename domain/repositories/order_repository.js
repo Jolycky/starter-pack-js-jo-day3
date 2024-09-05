@@ -51,7 +51,7 @@ async function updateByOrderId(orderId, updatedOrder) {
 }
 
 // Function to delete an order by order id
-async function deleteByOrderId(orderId) {
+async function deleteOne(orderId) {
   try {
     const deletedOrder = await Order.findOneAndDelete({ order_id: orderId });
     return deletedOrder;
@@ -60,4 +60,4 @@ async function deleteByOrderId(orderId) {
     throw error;
   }
 }
-module.exports = { create, getOneByOrderId, findAll, updateByOrderId, deleteByOrderId };
+module.exports = { create, getOneByOrderId, findAll, updateByOrderId, deleteOne };

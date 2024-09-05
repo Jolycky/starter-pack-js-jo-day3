@@ -49,12 +49,12 @@ const updateOneByOrderId = async (orderId, updateData) => {
 }
 
 // Function to delete an order by order id
-const deleteOneByOrderId = async (orderId) => {
+const deleteOne = async (orderId) => {
     try {
-        const deletedOrder = await orderRepository.deleteOneByOrderId(orderId);
+        const deletedOrder = await orderRepository.deleteOne(orderId);
         return deletedOrder;
     } catch (error) {
         throw new Error('Failed to delete order by order_id');
     }
 }
-module.exports = { create, getList, getOneByOrderId, updateOneByOrderId, deleteOneByOrderId };
+module.exports = { create, getList, getOneByOrderId, updateOneByOrderId, deleteOne };

@@ -63,7 +63,7 @@ async function updateOne(roleId, updatedRole) {
 }
 
 // Function to delete a role by ID
-async function deleteById(roleId) {
+async function deleteOne(roleId) {
   try {
     const deletedRole = await Role.findByIdAndDelete(roleId);
     return deletedRole;
@@ -74,4 +74,4 @@ async function deleteById(roleId) {
 }
 
 
-module.exports = { create, getOneByRoleId, getOneByName, findAll, updateOne, deleteById };
+module.exports = { create, getOneByRoleId, getOneByName, findAll, updateOne, deleteOne };

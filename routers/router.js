@@ -21,13 +21,13 @@ router.post("/role", roleHandler.create);
 router.get("/role", roleHandler.getList);
 router.get("/role/:id", roleHandler.getOneByRoleId);
 router.put("/role/:id", roleHandler.updateOne);
-router.delete("/role/:id", roleHandler.deleteOneByRoleId);
+router.delete("/role/:id", roleHandler.deleteOne);
 
 // Order routes
 router.post("/order", jwtAuth, orderHandler.create);
 router.get("/order", authenticatePassportJwt(), orderHandler.getList);
 router.get("/order/:id", authenticatePassportJwt(), orderHandler.getOneByOrderId);
 router.put("/order/:id", jwtAuth, orderHandler.updateOneByOrderId);
-router.delete("/order/:id", jwtAuth, orderHandler.deleteOneByOrderId);
+router.delete("/order/:id", authenticatePassportJwt(), orderHandler.deleteOne);
 
 module.exports = router;

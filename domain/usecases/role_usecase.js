@@ -50,13 +50,13 @@ const updateOne = async (roleId, updateData) => {
 }
 
 // Function to delete a role by role id
-const deleteOneByRoleId = async (roleId) => {
+const deleteOne = async (roleId) => {
     try {
-        const deletedRole = await repositories.deleteOneByRoleId(roleId);
+        const deletedRole = await repositories.deleteOne(roleId);
         return deletedRole;
     } catch (error) {
         throw new Error('Failed to delete role by role_id');
     }
 }
 
-module.exports = { create, getList, getOneByRoleId, updateOne, deleteOneByRoleId };
+module.exports = { create, getList, getOneByRoleId, updateOne, deleteOne };

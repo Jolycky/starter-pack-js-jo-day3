@@ -63,10 +63,10 @@ async function updateOne(req, res) {
 }
 
 // Handler to delete a role by role id
-async function deleteOneByRoleId(req, res) {
+async function deleteOne(req, res) {
   try {
     const roleId = req.params.id;
-    const deletedRole = await roleUsecase.deleteOneByRoleId(roleId);
+    const deletedRole = await roleUsecase.deleteOne(roleId);
     if (!deletedRole) {
       return res.status(404).json({ message: 'Role not found' });
     }
@@ -77,4 +77,4 @@ async function deleteOneByRoleId(req, res) {
   }
 }
 
-module.exports = { create, getList, getOneByRoleId, updateOne, deleteOneByRoleId };
+module.exports = { create, getList, getOneByRoleId, updateOne, deleteOne };

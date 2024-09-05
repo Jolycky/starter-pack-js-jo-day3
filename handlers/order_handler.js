@@ -55,10 +55,10 @@ async function updateOneByOrderId(req, res) {
 }
 
 // Handler to delete an order by order id
-async function deleteOneByOrderId(req, res) {
+async function deleteOne(req, res) {
   try {
     const orderId = req.params.id;
-    const deletedOrder = await orderUsecase.deleteOneByOrderId(orderId);
+    const deletedOrder = await orderUsecase.deleteOne(orderId);
     if (!deletedOrder) {
       return res.status(404).json({ message: 'Order not found' });
     }
@@ -69,4 +69,4 @@ async function deleteOneByOrderId(req, res) {
   }
 }
 
-module.exports = { create, getList, getOneByOrderId, updateOneByOrderId, deleteOneByOrderId };
+module.exports = { create, getList, getOneByOrderId, updateOneByOrderId, deleteOne };
