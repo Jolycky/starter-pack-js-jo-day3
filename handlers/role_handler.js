@@ -27,4 +27,54 @@ async function getList(req, res) {
   }
 }
 
-module.exports = { create, getList };
+// Handler to get a role by role id
+async function getOneByRoleId(req, res) {
+  try {
+    const roleId = req.params.id;
+    const role = await roleUsecase.getOneByRoleId(roleId);
+    if (!role) {
+      return res.status(404).json({ message: 'Role not found' });
+    }
+    res.json(role);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
+}
+
+// Handler to update a role by role id
+async function updateOne(req, res) {
+  try {
+    const roleId = req.params.id;
+    const { name, position, stacks } = req.body;
+    if (!name || !position || !stacks) {
+      return res.status(400).json({ message: "Name, Position, and Stacks are required" });
+    }
+    const role = { name, position, stacks };
+    const updatedRole = await roleUsecase.updateOne(roleId, role);
+    if (!updatedRole) {
+      return res.status(404).json({ message: 'Role not found' });
+    }
+    res.json(updatedRole);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
+}
+
+// Handler to delete a role by role id
+async function deleteOneByRoleId(req, res) {
+  try {
+    const roleId = req.params.id;
+    const deletedRole = await roleUsecase.deleteOneByRoleId(roleId);
+    if (!deletedRole) {
+      return res.status(404).json({ message: 'Role not found' });
+    }
+    res.json(deletedRole);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
+}
+
+module.exports = { create, getList, getOneByRoleId, updateOne, deleteOneByRoleId };

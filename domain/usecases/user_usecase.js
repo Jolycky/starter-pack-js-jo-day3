@@ -172,4 +172,17 @@ async function updateOne(updateData) {
   }
 }
 
-module.exports = {getOneByUserId, getOneByEmail, getList, register, login, updateOne};
+// Function to delete a user by their ID
+async function deleteOne(userId) {
+  try {
+    // Delete the user by ID
+    const deletedUser = await repository.deleteOne(userId);
+    return deletedUser;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+
+module.exports = {getOneByUserId, getOneByEmail, getList, register, login, updateOne, deleteOne};

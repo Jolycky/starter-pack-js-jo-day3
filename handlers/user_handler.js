@@ -1,5 +1,5 @@
 const userUsecase = require('../domain/usecases/user_usecase');
-const roleUsecase = require('../domain/usecases/role_usecase');
+
 
 // Handler to find a user by their ID
 async function getOneByUserId(req, res) {
@@ -73,4 +73,16 @@ async function updateOne(req, res) {
   }
 }
 
-module.exports = { getOneByUserId, getOneByEmail, getList, register, login, updateOne };
+// Handler to delete a user by their ID
+async function deleteOne(req, res) {
+  try {
+    const userId = req.params.id;
+    await userUsecase.deleteOne(userId);
+    res.json({ message: "User deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
+}
+
+module.exports = { getOneByUserId, getOneByEmail, getList, register, login, updateOne, deleteOne };
