@@ -36,6 +36,7 @@ This project demonstrates how to build a RESTful API using Node.js, MongoDB, and
 ├── README.md          # Project documentation (this file)
 ├── server.js          # Entry point for the Node.js server
 
+```
 ## Installation
 
 ### Clone the repository:
@@ -44,21 +45,22 @@ This project demonstrates how to build a RESTful API using Node.js, MongoDB, and
 git clone https://github.com/Jolycky/starter-pack-js-jo-day3 
 cd api-node-mongo-jwt
 
+```
 ### Install the dependencies:
 
 ```bash
 npm install
-
+```
 ### Set up the environment variables:
 
 ```bash
 cp env.example .env
-
+```
 ### Start the server:
 
 ```bash
 npm start
-
+```
 The server will start at http://localhost:3000.
 
 ## API Endpoints
